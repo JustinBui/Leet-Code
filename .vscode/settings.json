@@ -37,6 +37,7 @@
         "xtr1common": "cpp",
         "xutility": "cpp",
         "*.tcc": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "unordered_map": "cpp"
     }
 }

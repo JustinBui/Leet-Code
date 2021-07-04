@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <unordered_map>
 
 using namespace std;
 
@@ -7,63 +8,41 @@ int romanToInt(string);
 
 int main()
 {
-    cout << romanToInt("IV") << endl; // MCMXCIV
+    cout << romanToInt("III") << endl;
+    cout << romanToInt("IV") << endl;
+    cout << romanToInt("IX") << endl;
+    cout << romanToInt("LVIII") << endl;
+    cout << romanToInt("MCMXCIV") << endl;
     return 0;
 }
 
 int romanToInt(string s)
 {
-
     int intResult = 0;
     char prev = ' ';
+    unordered_map<char, int> myMap =
+        {
+            {'I', 1},
+            {'V', 5},
+            {'X', 10},
+            {'L', 50},
+            {'C', 100},
+            {'D', 500},
+            {'M', 1000}};
 
-    for (string::iterator curr = s.begin(); curr != s.end(); ++curr)
+    for (string::reverse_iterator it = s.rbegin(); it != s.rend(); ++it)
     {
-        if (*curr == 'I')
-            intResult += 1;
-        else if (*curr == 'V')
+
+        if (myMap[*it] < myMap[prev])
         {
-            if (prev == 'I')
-                intResult += 4;
-            else
-                intResult += 5;
+            intResult -= myMap[*it];
         }
-        else if (*curr == 'X')
+        else
         {
-            if (prev == 'I')
-                intResult += 9;
-            else
-                intResult += 10;
+            intResult += myMap[*it];
         }
-        else if (*curr == 'L')
-        {
-            if (prev == 'X')
-                intResult += 40;
-            else
-                intResult += 50;
-        }
-        else if (*curr == 'C')
-        {
-            if (prev == 'X')
-                intResult += 90;
-            else
-                intResult += 100;
-        }
-        else if (*curr == 'D')
-        {
-            if (prev == 'C')
-                intResult += 400;
-            else
-                intResult += 500;
-        }
-        else if (*curr == 'M')
-        {
-            if (prev == 'C')
-                intResult += 900;
-            else
-                intResult += 1000;
-        }
-        prev = *curr;
+
+        prev = *it;
     }
 
     return intResult;
