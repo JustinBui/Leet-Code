@@ -36,8 +36,5 @@ int searchInsert(vector<int> &nums, int target)
             end = index - 1;
     }
 
-    if (target > nums[index])
-        index++;
-
-    return index;
+    return start;
 }
