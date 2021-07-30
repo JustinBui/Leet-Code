@@ -1,12 +1,12 @@
 // Source: https://leetcode.com/problems/reorder-list/
 // Solution: https://www.youtube.com/watch?v=S5bfdUTrKLM (Not like the code below)
+// THIS IS MY OWN SOLUTION!!
 
 #include <iostream>
 #include <vector>
 #include "SLL.hpp"
 using namespace std;
 
-// THIS IS MY OWN SOLUTION!!
 class Solution
 {
 public:
