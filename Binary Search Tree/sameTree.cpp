@@ -5,7 +5,7 @@ using namespace std;
 class Solution
 {
 public:
-    bool helper(TreeNode *p, TreeNode *q)
+    bool isSameTree(TreeNode *p, TreeNode *q)
     {
         if (p == nullptr)
         {
@@ -25,13 +25,7 @@ public:
         bool l = isSameTree(p->left, q->left);
         bool r = isSameTree(p->right, q->right);
 
-        return l && r;
-    }
-
-    bool isSameTree(TreeNode *p, TreeNode *q)
-    {
-
-        return helper(p, q);
+        return l && r; // Comparing both right and left sides of node
     }
 };
 
@@ -40,7 +34,7 @@ int main()
     // p tree
     BinarySearchTree p;
     p.insert(1);
-    p.insert(4);
+    // p.insert(2);
     p.insert(3);
 
     cout << "p: ";
@@ -48,7 +42,7 @@ int main()
 
     // q tree
     BinarySearchTree q;
-    q.insert(1);
+    q.insert(5);
     q.insert(2);
     q.insert(3);
 
