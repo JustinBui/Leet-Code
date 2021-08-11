@@ -5,6 +5,7 @@
 using namespace std;
 
 // Solution: https://www.youtube.com/watch?v=0K0uCMYq5ng
+// Height Balanced (Supplemental): https://www.youtube.com/watch?v=LU4fGD-fgJQ
 class Solution
 {
 public:
