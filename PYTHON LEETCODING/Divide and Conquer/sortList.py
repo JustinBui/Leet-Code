@@ -1,3 +1,5 @@
+# SOURCE: https://www.youtube.com/watch?v=cVZMah9kEjI
+
 class Solution:
     def sortArray(self, nums: list[int]) -> list[int]:
         if (len(nums) == 1):    # BASE CASE
