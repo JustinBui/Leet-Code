@@ -34,3 +34,14 @@ class Solution:
         adjancencyMatrix = self.buildGraph(edges)
         visited = set()  # Empty set to represent visited nodes
         return self.findPathDFS(adjancencyMatrix, start, end, visited)
+
+
+if (__name__ == "__main__"):
+    n = 3
+    edges = [[0, 1], [1, 2], [2, 0]]
+    start = 0
+    end = 2
+
+    sol = Solution()
+    result = sol.validPath(n, edges, start, end)
+    print(result)
