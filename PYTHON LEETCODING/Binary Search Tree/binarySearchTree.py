@@ -43,6 +43,39 @@ class BinarySearchTree:
             print(node.val)
             self.inorder(node.right)
 
+    # def breadthFirstSearch(self):
+    #     queue = []
+
+    #     if (self.root != None):
+    #         queue.append(self.root)
+
+    #     while (len(queue) != 0):
+    #         candidate = queue[0]
+    #         queue.pop(0)
+
+    #         print(candidate.val)
+
+    #         if (candidate.left != None):
+    #             queue.append(candidate.left)
+    #         if (candidate.right != None):
+    #             queue.append(candidate.right)
+
+    def breadthFirstSearch(self):
+        queue = []
+
+        queue.append(self.root)
+
+        while (len(queue) != 0):
+            candidate = queue[0]
+            queue.pop(0)
+
+            print(candidate.val if candidate != None else None)
+
+            if (candidate != None):
+                queue.append(candidate.left)
+            if (candidate.right != None):
+                queue.append(candidate.right)
+
 
 if (__name__ == "__main__"):
     entityTree = BinarySearchTree()
@@ -60,4 +93,4 @@ if (__name__ == "__main__"):
 
     print(f"Is entity now tree empty? {entityTree.empty()}")
 
-    entityTree.inorder(entityTree.root)
+    entityTree.breadthFirstSearch()
