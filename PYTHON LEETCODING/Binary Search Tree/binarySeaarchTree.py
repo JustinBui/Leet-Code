@@ -61,6 +61,7 @@ class BinarySearchTree:
                 queue.append(candidate.right)
 
 
+
 if (__name__ == "__main__"):
     entityTree = BinarySearchTree()
 
