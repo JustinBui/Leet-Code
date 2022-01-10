@@ -1,6 +1,6 @@
 class Solution:
 
-    # Building a graph in the form of an adjacency matrix
+    # Building a graph in the form of an adjacency list
     def buildGraph(self, edges: list[list[int]]) -> dict:
         graph = dict()  # Each vertex maps to list of neighboring vertices
 
@@ -31,9 +31,9 @@ class Solution:
         return False
 
     def validPath(self, n: int, edges: list[list[int]], start: int, end: int) -> bool:
-        adjancencyMatrix = self.buildGraph(edges)
+        adjancencyList = self.buildGraph(edges)
         visited = set()  # Empty set to represent visited nodes
-        return self.findPathDFS(adjancencyMatrix, start, end, visited)
+        return self.findPathDFS(adjancencyList, start, end, visited)
 
 
 if (__name__ == "__main__"):
