@@ -1,37 +1,55 @@
+# Solution: https://www.youtube.com/watch?v=Akt3glAwyfY
+
 from types import prepare_class
 
 
 class Solution:
-    def adjacencyList(self, prerequisites: list[list[int]]) -> dict:
+    def adjacencyList(self, numCourses: int, prerequisites: list[list[int]]) -> dict:
         # Converting edge list to adjacency list
-        graph = dict()
+        graph = {i: [] for i in range(numCourses)}
         for course, pre in prerequisites:
-            if (course not in graph):
-                graph[course] = []
             graph[course].append(pre)
 
         return graph
 
-    def dfs(self, prerequisites: dict, current_visited: list[int], at: int, visited: set):
-        visited.add(at)
-
-        for neighbor in prerequisites[at]:
-            if neighbor in visited:
-                return []
-
     def findOrder(self, numCourses: int, prerequisites: list[list[int]]) -> list[int]:
         visited = set()
+        recusion_stack = []  # Serves as the current path traversed around the graph
         ordering = []
 
-        for i in range(numCourses):
-            current_visited = []
-            self.dfs(self.adjacencyList(prerequisites),
-                     current_visited, i, visited)
+        hash_set = self.adjacencyList(numCourses, prerequisites)
 
-            if (current_visited == []):
-                return []
+        def dfs(node: int) -> bool:
+            # -------------- Base case --------------
+            if (node in recusion_stack):
+                # If we repeat nodes in the recursion stack, then it is a cycle (MUST NOT HAVE)
+                return False
+            if (node in visited):
+                # If the node's neighbors are already visited knowing we don't have a cycle, then it is a valid path
+                return True
 
-            for cv in current_visited:
-                ordering.append(current_visited)
+            # -------------- Recursive case --------------
+            recusion_stack.append(node)
+            for neighbor in hash_set[node]:
+                if (dfs(neighbor) == False):
+                    return False
+
+            recusion_stack.remove(node)
+            visited.add(node)
+            ordering.append(node)
+            return True
+
+        for n in range(numCourses):
+            if (dfs(n) == False):
+                return []   # CYCLE DETECTED: Impossible to have a topological order
 
         return ordering
+
+
+if __name__ == "__main__":
+    sample = Solution()
+    numCourses = 1
+    prerequisites = []
+    order = sample.findOrder(numCourses, prerequisites)
+
+    print(order)
