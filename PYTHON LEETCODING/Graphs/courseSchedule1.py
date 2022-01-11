@@ -17,6 +17,7 @@ class Solution:
         return graph
 
     def cycleDetected(self, current: int, prerequisites: dict, visited: list[bool], recStack: list[bool]) -> bool:
+        # USING DFS
         visited[current] = True
         recStack[current] = True
 
