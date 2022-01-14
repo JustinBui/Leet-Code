@@ -1,7 +1,5 @@
 # Solution: https://www.youtube.com/watch?v=Akt3glAwyfY
 
-from types import prepare_class
-
 
 class Solution:
     def adjacencyList(self, numCourses: int, prerequisites: list[list[int]]) -> dict:
