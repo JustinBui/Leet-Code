@@ -41,8 +41,9 @@ class SinglyLinkedList:
     def traverse(self):
         it = self.head
         while(it != None):
-            print(it.val)
+            print(it.val, end=" ")
             it = it.next
+        print("")
 
 
 if (__name__ == "__main__"):
