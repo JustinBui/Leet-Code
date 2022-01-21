@@ -1,3 +1,4 @@
+# Solution: https://www.youtube.com/watch?v=jzZsG8n2R9A
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
         result = []
