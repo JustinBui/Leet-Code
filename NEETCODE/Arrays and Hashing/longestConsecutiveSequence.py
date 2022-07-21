@@ -26,6 +26,16 @@ class Solution:
         nums = set(nums)
         longest = 0
 
+        for n in nums:
+            # Seeing if this has no left neighbors (i.e start of the sequence)
+            if (n - 1) not in nums:
+                candidate = 0
+                while (n + candidate) in nums:
+                    candidate += 1
+
+                if candidate > longest:
+                    longest = candidate
+
         return longest
 
 
