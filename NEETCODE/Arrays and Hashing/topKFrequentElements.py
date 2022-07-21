@@ -23,10 +23,10 @@ class Solution(object):
         topK = list()
         for bucket in range(len(frequency) - 1, 0, -1):
             for f in frequency[bucket]:
+                topK.append(f)
+
                 if len(topK) == k:
                     return topK
-
-                topK.append(f)
 
 
 if __name__ == '__main__':
