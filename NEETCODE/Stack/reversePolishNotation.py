@@ -13,7 +13,7 @@ class Solution:
                 elif t == '-':
                     res = op1 - op2
                 elif t == '/':
-                    res = op1 // op2
+                    res = op1 / op2
                 elif t == '*':
                     res = op1 * op2
 
