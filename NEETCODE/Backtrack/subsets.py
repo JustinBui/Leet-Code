@@ -28,4 +28,4 @@ if __name__ == '__main__':
     obj = Solution()
 
     nums = [1, 2, 3]
-    obj.subsets(nums)
+    print(obj.subsets(nums))
