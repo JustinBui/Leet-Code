@@ -1,5 +1,6 @@
 # BRUTE FORCE
 class Solution:
+    # MY VERSION
     def subsetsWithDup(self, nums: list[int]) -> list[list[int]]:
         res = []
         sub = []
@@ -19,6 +20,29 @@ class Solution:
 
         dfs(0)
 
+        return res
+
+    # NEETCODE's VERSION
+    def subsetsWithDup2(self, nums: list[int]) -> list[list[int]]:
+        nums = sorted(nums)
+        res = []
+
+        def dfs_backtrack(index, subset):
+            if index >= len(nums):
+                res.append(subset[:])
+                return
+
+            subset.append(nums[index])
+            dfs_backtrack(index + 1, subset)
+
+            subset.pop()  # Excluding nums[index] from decision space
+            while index + 1 < len(nums) and nums[index] == nums[index + 1]:
+                # Moving index forward to prevent duplicates in our list
+                index += 1
+
+            dfs_backtrack(index + 1, subset)
+
+        dfs_backtrack(index=0, subset=[])
         return res
 
 
