@@ -12,8 +12,10 @@ class Solution:
                 return -1
             left = dfs(root.left)
             right = dfs(root.right)
+            # Adding 2 with left + right because we are taking into account of BOTH nodes
             res[0] = max(res[0], 2 + left + right)
 
+            # While we are finding the max diameter, we are finding the height of each node in the BST Depth First
             return 1 + max(left, right)
 
         dfs(root)
