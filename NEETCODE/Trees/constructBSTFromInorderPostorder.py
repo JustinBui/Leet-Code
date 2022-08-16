@@ -1,3 +1,8 @@
+from typing import Optional
+from binarySearchTree import TreeNode
+from binarySearchTree import BinarySearchTree
+
+
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
         if not preorder and not inorder:
